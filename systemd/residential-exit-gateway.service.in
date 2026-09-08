@@ -1,0 +1,16 @@
+[Unit]
+Description=Residential Exit Node gateway rules
+Wants=network-online.target
+After=network-online.target wg-quick.target
+After=wg-quick@@WG_INTERFACE@.service
+
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=@PROJECT_ROOT@/exit-node.sh --gateway-enable
+ExecStop=@PROJECT_ROOT@/exit-node.sh --gateway-disable
+TimeoutStartSec=30
+
+[Install]
+WantedBy=multi-user.target

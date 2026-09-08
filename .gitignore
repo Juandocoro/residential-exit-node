@@ -1,0 +1,16 @@
+# Runtime secrets and generated configuration
+*.key
+*.pub
+*.conf
+profiles/
+config/*
+!config/.gitkeep
+backups/
+*.log
+.env
+.env.*
+
+# Tooling
+.shellcheckrc.local
+coverage/
+work/
