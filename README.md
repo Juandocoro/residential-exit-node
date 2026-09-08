@@ -46,6 +46,12 @@ sudo ./exit-node.sh
 
 El menú permite preparar el equipo de extremo a extremo o ejecutar cada operación por separado. Los datos viven en `/etc/residential-exit-node/profiles/`; una configuración WireGuard se activa a la vez por nombre de interfaz.
 
+El menú permanece abierto después de cada operación, muestra el commit, perfil,
+túnel y gateway activos, y permite salir en cualquier momento con **0** o
+`Ctrl+C`. La opción **21** consulta `origin/main`, muestra los commits pendientes
+y solicita confirmación antes de actualizar. Sólo admite actualizaciones
+`fast-forward`: nunca borra cambios locales ni usa `git reset --hard`.
+
 ## Crear y conectar un nodo
 
 1. Ejecute la opción **9** y seleccione la interfaz física que tiene salida a Internet. No se presupone `wlan0`.
@@ -104,6 +110,7 @@ Las pruebas no modifican red, firewall, `/etc` ni systemd; usan un directorio te
 ```bash
 bash -n ./*.sh lib/*.sh tests/*.sh
 bash tests/test_core.sh
+bash tests/test_update.sh
 shellcheck ./*.sh lib/*.sh tests/*.sh
 ```
 
