@@ -22,6 +22,22 @@ Android/Termux no está soportado. El instalador no reinicia el equipo.
 
 ## Instalación
 
+Instalación rápida desde GitHub:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/Juandocoro/residential-exit-node/main/quick-install.sh | sudo bash
+```
+
+El comando instala `git` si hace falta, descarga o actualiza el proyecto en
+`/opt/residential-exit-node`, instala sus dependencias y no reinicia el equipo.
+Después abra el menú con:
+
+```bash
+sudo /opt/residential-exit-node/exit-node.sh
+```
+
+Instalación manual:
+
 ```bash
 cd residential-exit-node
 sudo ./install.sh
@@ -100,3 +116,4 @@ shellcheck ./*.sh lib/*.sh tests/*.sh
 - `lib/diagnostics.sh`: estado y pruebas no destructivas.
 - `lib/backup.sh`: respaldo y restauración.
 - `install.sh` / `uninstall.sh`: ciclo de vida.
+- `quick-install.sh`: instalación o actualización remota con un solo comando.
